@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8" /><title>JavaScript exercises</title>
+    <body>
+        <nav aria-label="Exercises">
+            <a href="?lesson=01">01</a> <a href="?lesson=02">02</a>
+            <a href="?lesson=03">03</a> <a href="?lesson=04">04</a>
+            <a href="?lesson=05">05</a> <a href="06_Functions.html">06</a>
+            <a href="?lesson=07">07</a> <a href="?lesson=08">08</a>
+            <a href="?lesson=09">09</a> <a href="?lesson=10">10</a>
+            <a href="?lesson=11">11</a> <a href="?lesson=12">12</a>
+            <a href="?lesson=13">13</a>
+        </nav>
+        <hr />
+        <script>
+            // The selected number resolves to a local lesson in the fixed list.
+            const lessons = {
+                "01": "01_Introduction.js",
+                "02": "02_Comments&Statements.js",
+                "03": "03_Variables.js",
+                "04": "04_Variables(2).js",
+                "05": "05_Variables(3).js",
+                "07": "07_Functions(2).js",
+                "08": "08_Functions(3).js",
+                "09": "09_Functions(4).js",
+                10: "10_Functions(5).js",
+                11: "11_Scope.js",
+                12: "12_MathOperators.js",
+                13: "13_AssignmentOperators.js",
+            };
+            const id =
+                new URLSearchParams(location.search).get("lesson") || "01";
+            if (Object.hasOwn(lessons, id)) {
+                const script = document.createElement("script");
+                script.src = lessons[id];
+                document.body.append(script);
+            }
+        </script>
+    </body>
+</html>
